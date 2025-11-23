@@ -232,16 +232,4 @@ Update email settings in `application.properties`:
 ```properties
 spring.mail.username=your_email@gmail.com
 spring.mail.password=your_app_password
-```
-
-## License
-
-This project is licensed under the MIT License.
-
-## Contributors
-
-- Your Name
-
-## Support
-
-For issues and questions, please open an issue on GitHub.
+`
