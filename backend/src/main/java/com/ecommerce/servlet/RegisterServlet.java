@@ -1,6 +1,6 @@
 package com.ecommerce.servlet;
 
-import com.ecommerce.dao.impl.UserDAOImpl;
+import com.ecommerce.dao.UserDAO;
 import com.ecommerce.model.Customer;
 import com.ecommerce.model.UserRole;
 import jakarta.servlet.*;
@@ -23,7 +23,7 @@ import java.sql.SQLException;
 public class RegisterServlet extends HttpServlet {
     
     @Autowired
-    private UserDAOImpl userDAO;
+    private UserDAO userDAO;
     
     @Autowired
     private PasswordEncoder passwordEncoder;

@@ -60,8 +60,10 @@ public class OrderServiceImpl implements IOrderService {
                     );
                     
                     if (!stockReduced) {
+                        Product product = productDAO.findById(cartItem.getProductId());
+                        int available = product != null ? product.getStockQuantity() : 0;
                         throw new InsufficientStockException(
-                            "Insufficient stock for product: " + cartItem.getProductName());
+                            cartItem.getProductName(), cartItem.getQuantity(), available);
                     }
                     
                     // Create order item

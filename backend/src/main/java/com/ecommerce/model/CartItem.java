@@ -1,6 +1,7 @@
 package com.ecommerce.model;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 /**
@@ -9,11 +10,14 @@ import java.util.Objects;
  */
 public class CartItem {
     
+    private Long id;
+    private Long userId;
     private Long productId;
     private String productName;
     private BigDecimal price;
     private Integer quantity;
     private String imageUrl;
+    private LocalDateTime createdAt;
     
     /**
      * Default constructor
@@ -49,6 +53,22 @@ public class CartItem {
     }
     
     // Getters and Setters
+    
+    public Long getId() {
+        return id;
+    }
+    
+    public void setId(Long id) {
+        this.id = id;
+    }
+    
+    public Long getUserId() {
+        return userId;
+    }
+    
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
     
     public Long getProductId() {
         return productId;
@@ -88,6 +108,14 @@ public class CartItem {
     
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+    
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+    
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
     }
     
     @Override

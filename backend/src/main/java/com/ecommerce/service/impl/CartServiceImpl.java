@@ -46,7 +46,7 @@ public class CartServiceImpl implements ICartService {
             
             if (!product.hasSufficientStock(quantity)) {
                 throw new InsufficientStockException(
-                    "Insufficient stock for product: " + product.getName());
+                    product.getName(), quantity, product.getStockQuantity());
             }
             
             // Create cart item
@@ -84,7 +84,8 @@ public class CartServiceImpl implements ICartService {
             // Validate stock
             Product product = productDAO.findById(cartItem.getProductId());
             if (product != null && !product.hasSufficientStock(quantity)) {
-                throw new InsufficientStockException("Insufficient stock");
+                throw new InsufficientStockException(
+                    product.getName(), quantity, product.getStockQuantity());
             }
             
             cartItem.setQuantity(quantity);

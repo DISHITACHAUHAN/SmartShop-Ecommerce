@@ -1,6 +1,6 @@
 package com.ecommerce.servlet;
 
-import com.ecommerce.dao.impl.ProductDAOImpl;
+import com.ecommerce.dao.ProductDAO;
 import com.ecommerce.model.CartItem;
 import com.ecommerce.model.Product;
 import com.ecommerce.service.ShoppingCart;
@@ -25,7 +25,7 @@ import java.util.Map;
 public class CartServlet extends HttpServlet {
     
     @Autowired
-    private ProductDAOImpl productDAO;
+    private ProductDAO productDAO;
     
     @Override
     public void init() throws ServletException {

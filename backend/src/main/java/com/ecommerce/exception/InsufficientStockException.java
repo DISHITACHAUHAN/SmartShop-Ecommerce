@@ -2,9 +2,9 @@ package com.ecommerce.exception;
 
 /**
  * Exception thrown when product stock is insufficient for order
- * Extends SmartShopException
+ * Extends RuntimeException for unchecked exception handling
  */
-public class InsufficientStockException extends SmartShopException {
+public class InsufficientStockException extends RuntimeException {
     
     private Long productId;
     private String productName;
@@ -15,8 +15,7 @@ public class InsufficientStockException extends SmartShopException {
      * Constructor with product details
      */
     public InsufficientStockException(Long productId, int requested, int available) {
-        super("INSUFFICIENT_STOCK",
-              String.format("Insufficient stock for product %d. Requested: %d, Available: %d",
+        super(String.format("Insufficient stock for product %d. Requested: %d, Available: %d",
                            productId, requested, available));
         this.productId = productId;
         this.requestedQuantity = requested;
@@ -27,8 +26,7 @@ public class InsufficientStockException extends SmartShopException {
      * Constructor with product name
      */
     public InsufficientStockException(String productName, int requested, int available) {
-        super("INSUFFICIENT_STOCK",
-              String.format("Insufficient stock for %s. Requested: %d, Available: %d",
+        super(String.format("Insufficient stock for %s. Requested: %d, Available: %d",
                            productName, requested, available));
         this.productName = productName;
         this.requestedQuantity = requested;
@@ -40,13 +38,20 @@ public class InsufficientStockException extends SmartShopException {
      */
     public InsufficientStockException(Long productId, String productName, 
                                      int requested, int available) {
-        super("INSUFFICIENT_STOCK",
-              String.format("Insufficient stock for %s (ID: %d). Requested: %d, Available: %d",
+        super(String.format("Insufficient stock for %s (ID: %d). Requested: %d, Available: %d",
                            productName, productId, requested, available));
         this.productId = productId;
         this.productName = productName;
         this.requestedQuantity = requested;
         this.availableQuantity = available;
+    }
+    
+    public String getErrorCode() {
+        return "INSUFFICIENT_STOCK";
+    }
+    
+    public String getErrorCodeString() {
+        return "INSUFFICIENT_STOCK";
     }
     
     public Long getProductId() {

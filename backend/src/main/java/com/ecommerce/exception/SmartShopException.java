@@ -48,6 +48,10 @@ public class SmartShopException extends Exception {
         return errorCode;
     }
     
+    public String getErrorCodeString() {
+        return errorCode != null ? errorCode : "UNKNOWN_ERROR";
+    }
+    
     public void setErrorCode(String errorCode) {
         this.errorCode = errorCode;
     }

@@ -41,7 +41,7 @@ public class Customer extends User {
     // Implementing abstract method (Polymorphism)
     @Override
     public String getUserTypeDisplay() {
-        return "Customer: " + getFullName() + " (" + email + ")";
+        return "Customer: " + getFullName() + " (" + getEmail() + ")";
     }
     
     // Implementing abstract method
